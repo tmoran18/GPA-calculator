@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import GradeInput from '../components/GradeInput';
 import GPA from '../components/GPA';
@@ -227,6 +228,37 @@ export default function IndexPage() {
 							</p>
 						</motion.div>
 					</section>
+					<div className='absolute top-0 right-0 flex w-64 m-3 justify-between'>
+						<span className='italic text-text-base'>By Tim Moran</span>
+						<a
+							href='https://github.com/tmoran18/GPA-calculator'
+							target='_blank'
+							rel='noreferrer noopener'>
+							<Image
+								src='/github.svg'
+								alt='Github Logo'
+								width={24}
+								height={24}
+							/>
+						</a>
+						<a
+							href='https://twitter.com/Tim__Moran'
+							target='_blank'
+							rel='noreferrer noopener'>
+							<Image
+								src='/twitter.svg'
+								alt='Twitter Logo'
+								width={24}
+								height={24}
+							/>
+						</a>
+						<a
+							href='https://tim-moran.com/'
+							target='_blank'
+							rel='noreferrer noopener'>
+							<Image src='/www.svg' alt='WWW logo' width={24} height={24} />
+						</a>
+					</div>
 				</div>
 			</div>
 		</>
