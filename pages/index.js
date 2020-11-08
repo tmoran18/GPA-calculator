@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import GradeInput from '../components/GradeInput';
 import GPA from '../components/GPA';
 import Button from '../components/Button';
@@ -16,20 +16,11 @@ export default function IndexPage() {
 	const [fails, setFails] = useState(['', 0]);
 	const [GpaScore, setGpaScore] = useState('');
 	const [showGPA, setShowGPA] = useState(false);
-	const [totalGrades, setTotalGrades] = useState('');
 	const [showAlert, setShowAlert] = useState(false);
 	const [alertMsg, setAlertMsg] = useState('');
 	const [isOpen, setIsOpen] = useState(false);
 
-	// Multiply each grade value by the unit credit points
-	// Sum the resulting values (weighted GPA unit score)
-	// Sum the unit credit points
-	// Divide the sum of the weighted GPA unit score by the sum of the unit credit points
-	// Calculate to three decimal places.
-
-	// GPA = Sum of ( Grade Point × Credit Points ) ÷ Sum of ( Credit Points )
-
-	//TODO
+	// Validation checking, then call getGPA function
 	const calculateGPA = () => {
 		// check if total Units has no value, throw alert
 		if (!totalUnits[0]) {
@@ -57,7 +48,6 @@ export default function IndexPage() {
 		}
 	};
 
-	// 2. Make sure inputs can only receive numbers
 	// Sum of ( Grade Point × Credit Points )
 	const sumOfGradePointByCreditPoint = () => {
 		const HD = highDistinctions[0] * highDistinctions[1] * creditPoint;
@@ -70,6 +60,7 @@ export default function IndexPage() {
 	// Sum of ( Credit Points )
 	const sumOfCreditPoints = () => +totalUnits[0] * creditPoint;
 
+	// Divide Grade Points by Credit Points to get GPA
 	const getGPA = () => {
 		const gradePoints = sumOfGradePointByCreditPoint();
 		const creditPoints = sumOfCreditPoints();
@@ -77,10 +68,12 @@ export default function IndexPage() {
 		setShowGPA(true);
 	};
 
+	// Close the alert box
 	const closeAlert = () => {
 		setShowAlert(false);
 	};
 
+	// Reset All Inputs
 	const reset = () => {
 		setTotalUnits(['', 0]);
 		setHighDistinctions(['', 7]);
@@ -92,6 +85,7 @@ export default function IndexPage() {
 		setShowGPA(false);
 	};
 
+	// Variants for Motion div GPA Info Box
 	const variants = {
 		open: { opacity: 1, height: '310px' },
 		closed: { opacity: 1, height: '35px' },
