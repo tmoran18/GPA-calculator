@@ -87,7 +87,7 @@ export default function IndexPage() {
 
 	// Variants for Motion div GPA Info Box
 	const variants = {
-		open: { opacity: 1, height: '310px' },
+		open: { opacity: 1, height: 'auto' },
 		closed: { opacity: 1, height: '35px' },
 	};
 

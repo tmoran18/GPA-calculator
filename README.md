@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-    <a align="center" href="https://assignment-planner.vercel.app/" target="_blank">Live Demo - GPA Calculator</a>
+    <a align="center" href="https://gpa-calculator-next.vercel.app/" target="_blank">Live Demo - GPA Calculator</a>
 </p>
 
 
